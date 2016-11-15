@@ -2,15 +2,16 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
-# from userena.models import UserenaBaseProfile
+#from userena.models import UserenaBaseProfile
 
-#class MyProfile(UserenaBaseProfile):
-    #user = models.OneToOneField(User,
-                                #unique=True,
-                                #verbose_name=_('user'),
-                               # related_name='my_profile')
-    #favourite_snack = models.CharField(_('favourite snack'),
-                                    #   max_length=5)
+#class userena.models.UserenaSignup():
+   #def activation_key_expired():
+       #if True:
+          # return activation_key
+       #else:
+           #False
+
+
 class Profile(models.Model):
     first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
