@@ -39,6 +39,7 @@ class Event(models.Model):
     #date= models.DateField()
     time= models.DateTimeField()
 
+
 class Registration(models.Model):
     event = models.ForeignKey(Event)
     user = models.ForeignKey(User)
