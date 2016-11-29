@@ -38,7 +38,7 @@ class Event(models.Model):
     description = models.TextField()
     #date= models.DateField()
     time= models.DateTimeField()
-
+    organization= models.ForeignKey(Organization)
 
 class Registration(models.Model):
     event = models.ForeignKey(Event)
