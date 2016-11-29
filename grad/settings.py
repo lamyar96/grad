@@ -32,10 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app',
-    #'userena',
-    #'guardian',
-    #'easy_thumbnails',
-    #'django.contrib.sites',
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 #EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 #EMAIL_USE_TLS = True
@@ -134,3 +140,5 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+ANONYMOUS_USER_ID = -1

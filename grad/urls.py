@@ -5,15 +5,16 @@ from app import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
+url = [
     url(r'^admin/', admin.site.urls),
     url(r'^tw/',include(app_urls)),
     url(r'^$',views.Index),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    url += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+    url += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static"),
