@@ -5,7 +5,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from .models import Organization
-from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from .models import Event
 from form import UserForm
@@ -28,10 +27,3 @@ def follow_organization(request, organization_id):
     if request.method == "POST":
         organization.user.add(request.user)
     return HttpResponseRedirect(reverse('list_event'))
-def register(request):
-    form = UserForm(request.Post or None)
-    if form.is_valid():
-        user=form.save(commit=False)
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
-
