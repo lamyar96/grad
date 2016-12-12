@@ -11,21 +11,6 @@ from django.utils.translation import ugettext as _
        #else:
            #False
 
-
-class Profile(models.Model):
-    first_name = models.CharField(max_length=50)
-    middle_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=70, unique=True)
-    mobile = models.IntegerField(max_length=50)
-    major= models.CharField(max_length=50)
-    interests = models.TextField()
-    cv= models.FileField(upload_to='CVs')
-    user= models.OneToOneField(User)
-
-    def __unicode__(self):
-        return self.first_name
-
 class Organization(models.Model):
     organization = models.CharField(max_length=100)
     bio = models.TextField()

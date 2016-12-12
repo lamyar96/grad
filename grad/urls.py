@@ -1,11 +1,15 @@
 from django.conf.urls import url,include
+from accounts.forms import SignupFormExtra
 from django.contrib import admin
 from app import urls as app_urls
 from app import views
 from django.conf import settings
 from django.conf.urls.static import static
+from userena import urls as userena_urls
 
 urlpatterns = [
+    url(r'^accounts/signup/$', 'userena.views.signup', {'signup_form': 'SignupFormExtra'}),
+    url(r'^accounts/',include(userena_urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^tw/',include(app_urls)),
     url(r'^$',views.Index),

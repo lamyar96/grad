@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap3',
     'accounts',
     'app',
     'userena',
@@ -52,11 +53,13 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_USE_TLS = True
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'yourgmailaccount@gmail.com'
+#EMAIL_HOST_USER = 'noreply@enjazportal.com'
 #EMAIL_HOST_PASSWORD = 'yourgmailpassword'
 
 MIDDLEWARE = [
@@ -146,11 +149,8 @@ MEDIA_URL = '/media/'
 
 ANONYMOUS_USER_ID = -1
 SITE_ID = 1
-AUTH_PROFILE_MODULE ='app.Profile'
+AUTH_PROFILE_MODULE ='accounts.Profile'
 
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'yourgmailaccount@gmail.com'
-EMAIL_HOST_PASSWORD = 'yourgmailpassword'
+USERENA_SIGNIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
